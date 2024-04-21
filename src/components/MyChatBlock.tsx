@@ -11,7 +11,7 @@ const MyChatBlock = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get('https://chaty-server1.onrender.com//api/chat/show_message');
+                const response = await axios.get('https://chaty-server1.onrender.com/api/chat/show_message');
                 setMessages(response.data);
             } catch (error) {
                 console.error('An error occurred while fetching messages:', error);

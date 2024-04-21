@@ -28,7 +28,7 @@ const Register = () => {
         console.log(`Submit ID : ${formData.id}`);
 
         try {
-            const response = await axios.post('https://chaty-server1.onrender.com//api/register', formData);
+            const response = await axios.post('https://chaty-server1.onrender.com/api/register', formData);
             console.log("Response Data from /api/register: ", response.data);
             navigate('/');
 
