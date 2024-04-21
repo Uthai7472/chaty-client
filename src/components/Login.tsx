@@ -66,6 +66,7 @@ const Login = () => {
                     </form>
                     <div className='flex justify-center items-center mt-8'>
                         <Link to={"/register"} className='text-sm text-black hover:text-pick-3'>Register here</Link>
+                        <Link to={"/main"} className='text-sm text-black hover:text-pick-3'>Main</Link>
                     </div>
                 </div>
             </div>

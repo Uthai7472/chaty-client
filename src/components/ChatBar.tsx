@@ -1,4 +1,4 @@
-import { ReactEventHandler, useState } from 'react';
+import { useState } from 'react';
 import './ChatBar.css';
 import { IoImages } from "react-icons/io5";
 import { BsSendFill } from "react-icons/bs";
@@ -8,6 +8,7 @@ const ChatBar = () => {
   const username = localStorage.getItem('userLogin');
   console.log("Username: ", username);
 
+
   const [formData, setFormData] = useState({
     'username': '',
     'message': '',
@@ -15,6 +16,15 @@ const ChatBar = () => {
     'timestamp': '',
     'date': ''
   });
+
+  const handleChangeTextArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+    console.log(`Name: ${name} Value: ${value}`);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,8 +35,8 @@ const ChatBar = () => {
     console.log(`Name: ${name} Value: ${value}`);
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const handleClick = async () => {
+    // e.preventDefault();
 
     try {
       // Generate current timestamp and date
@@ -54,6 +64,9 @@ const ChatBar = () => {
         'timestamp': '',
         'date': ''
       });
+      
+      window.location.reload();
+      
     } catch (error) {
       console.error('An error occurred during send message:', error);
     }
@@ -67,13 +80,13 @@ const ChatBar = () => {
       </div>
 
       <div className='message-block'>
-        <textarea onChange={handleChange} value={formData.message} className='chat-input' name='message' id='message'>
+        <textarea onChange={handleChangeTextArea} value={formData.message} className='chat-input' name='message' id='message'>
 
         </textarea>
       </div>
 
       <div className='send-btn-block'>
-        <button onClick={handleSubmit}><BsSendFill /></button>
+        <button onClick={handleClick}><BsSendFill /></button>
       </div>
         
     </div>

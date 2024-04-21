@@ -3,7 +3,7 @@ import './Header.css';
 import { useNavigate } from 'react-router-dom';
 
 
-const Header = ({ topic }) => {
+const Header = ({ topic }: { topic: string }) => {
 
   const navigate = useNavigate();
 

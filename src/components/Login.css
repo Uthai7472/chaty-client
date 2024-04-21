@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('../public/picture/candy1.jpg'); /* Use url() to specify the path to the image */
+    background-image: url('../picture/candy1.jpg'); /* Use url() to specify the path to the image */
     background-size: cover; /* Ensure the background image covers the entire element */
     background-position: center; /* Center the background image */
     background-repeat: no-repeat;

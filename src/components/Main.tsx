@@ -1,25 +1,33 @@
 
 import './Main.css'
 import Header from './Header';
-import useAuth from './AuthGuard';
+// import useAuth from './AuthGuard';
 import ChatBar from './ChatBar';
 import MyChatBlock from './MyChatBlock';
 
 
 const Main = () => {
 
-  const isAuthen = useAuth();
+  // const isAuthen = useAuth();
 
-  if (!isAuthen) {
-    return null;
-  }
+  // if (!isAuthen) {
+  //   return null;
+  // }
+  // const isAuthenState = localStorage.getItem('isAuthenticated');
+  //   if (isAuthenState === 'false' || isAuthenState === null) {
+  //     window.location.href = '/';
+  //     return null;
+  //     // window.location.href = '/';
+  //   }
+  
+  //   console.log('isAuthen: ', localStorage.getItem('isAuthenticated'));
 
   let userLogin = localStorage.getItem('userLogin');
   console.log(localStorage.getItem('userLogin'));
 
   return (
     <div className='main-body'>
-      <Header topic={userLogin} />
+      <Header topic={userLogin ?? ''} />
       {/* <Navbar /> */}
 
       {/* <YourChatBlock /> */}

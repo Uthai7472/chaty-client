@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import './MyChatBlock.css';
 import axios from 'axios';
 
 const MyChatBlock = () => {
-    const [messages, setMessages] = useState([]);
+    const [messages, setMessages] = useState<{ id_table: number; username: string; date: string; timestamp: string; message: string }[]>([]);
 
     const userLogin = localStorage.getItem('userLogin');
     console.log('User login: ', userLogin);
@@ -22,7 +22,7 @@ const MyChatBlock = () => {
     }, []);
 
     // Function to format the date in the desired format
-    const formatDate = (dateString) => {
+    const formatDate = (dateString: string) => {
         const date = new Date(dateString);
         date.setDate(date.getDate() + 1); // Add one day to the date
         return date.toLocaleDateString('en-US', { timeZone: 'UTC' }); // Format date as 'yyyy-mm-dd'
@@ -35,13 +35,13 @@ const MyChatBlock = () => {
 
     // const filteredYourMessages = sortedMessages.filter(message => message.username !== userLogin);
 
-    const chatContainerClass = messages.some(message => message.username === userLogin ? 'my-chat-container' : 'your-chat-container');
+    // const chatContainerClass = messages.some(message => message.username === userLogin ? 'my-chat-container' : 'your-chat-container');
 
   return (
     <div>
         
         <div>
-            {sortedMessages.map((message, index) => (
+            {sortedMessages.map((message) => (
                 <div className='chat-container'>
                     <div key={message.id_table} className={message.username === userLogin ? 'message-container' : 'your-message-container'}>
                         <div className='datetime-block'>
