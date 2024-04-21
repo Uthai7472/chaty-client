@@ -31,7 +31,7 @@ body {
     border: 1px solid black;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
     .main-body {
         /* max-width: 300px; */
         background-color: #FAA7D2;
