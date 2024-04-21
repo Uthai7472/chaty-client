@@ -57,7 +57,7 @@
     background-color: #979797;
 }
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
     .chat-bar-container {
         width: 100%;
         height: 85px;

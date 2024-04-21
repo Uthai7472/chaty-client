@@ -48,7 +48,7 @@
 }
 
 
-@media (max-width: 400px) {
+@media (max-width: 768px) {
     .chat-container {
         display: flex; /* Use flexbox layout */
         flex-direction: column; /* Align items vertically */
