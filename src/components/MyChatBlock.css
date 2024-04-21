@@ -12,7 +12,7 @@
 
 .message-container {
     width: 500px;
-    background-color: #D94A94;
+    background-color: #82b3f3;
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -35,7 +35,7 @@
     /* position: absolute; */
     left: 0;
     width: 500px;
-    background-color: #FBCCAE;
+    background-color: #d3defb;
     padding: 5px;
     margin-bottom: 10px;
     border-radius: 10px;
@@ -61,12 +61,12 @@
 
     .message-container {
         width: auto;
-        background-color: #D94A94;
+        background-color: #82b3f3;
         padding: 5px;
         margin-bottom: 10px;
         border-radius: 10px;
         align-self: flex-end;
-        color: #FBCCAE;
+        color: black;
         font-weight: bold;
         max-width: 70%;
     }
@@ -75,12 +75,12 @@
         /* position: absolute; */
         left: 0;
         width: auto;
-        background-color: #FBCCAE;
+        background-color: #d3defb;
         padding: 5px;
         margin-bottom: 10px;
         border-radius: 10px;
         align-self: flex-start;
-        color: #D94A94;
+        color: black;
         font-weight: bold;
         max-width: 70%;
     }

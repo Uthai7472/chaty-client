@@ -4,12 +4,12 @@
 
 body {
     box-sizing: border-box;
-    background-color: #FAA7D2;
+    background-color: white;
 
 }
 
 .main-body {
-    background-color: #FAA7D2;
+    background-color: white;
     margin-bottom: 90px;
 }
 
@@ -34,7 +34,7 @@ body {
 @media (max-width: 768px) {
     .main-body {
         /* max-width: 300px; */
-        background-color: #FAA7D2;
+        background-color: white;
         margin-bottom: 90px;
         /* margin-top: 50px; */
     }
