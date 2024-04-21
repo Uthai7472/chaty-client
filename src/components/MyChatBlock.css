@@ -47,3 +47,47 @@
     justify-content: flex-start;
 }
 
+
+@media (max-width: 400px) {
+    .chat-container {
+        display: flex; /* Use flexbox layout */
+        flex-direction: column; /* Align items vertically */
+        align-items: flex-end; /* Align items to the end (right side) */
+        padding: 5px;
+        margin: 10px;
+        /* border: 1px solid black; */
+    
+    }
+
+    .message-container {
+        width: auto;
+        background-color: #D94A94;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        align-self: flex-end;
+        color: #FBCCAE;
+        font-weight: bold;
+        max-width: 70%;
+    }
+
+    .your-message-container {
+        /* position: absolute; */
+        left: 0;
+        width: auto;
+        background-color: #FBCCAE;
+        padding: 5px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+        align-self: flex-start;
+        color: #D94A94;
+        font-weight: bold;
+        max-width: 70%;
+    }
+    
+    .message-block {
+        display: flex;
+        justify-content: flex-start;
+        color: black;
+    }
+}

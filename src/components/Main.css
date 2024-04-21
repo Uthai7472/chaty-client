@@ -30,3 +30,12 @@ body {
     height: 100vh;
     border: 1px solid black;
 }
+
+@media (max-width: 400px) {
+    .main-body {
+        /* max-width: 300px; */
+        background-color: #FAA7D2;
+        margin-bottom: 90px;
+        /* margin-top: 50px; */
+    }
+}

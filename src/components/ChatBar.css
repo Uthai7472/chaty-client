@@ -56,3 +56,31 @@
 .send-btn-block:hover {
     background-color: #979797;
 }
+
+@media (max-width: 400px) {
+    .chat-bar-container {
+        width: 100%;
+        height: 85px;
+        background-color: #373737;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        bottom: 0;
+        position: fixed;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .chat-input {
+        width: 55vw;
+        height: 40px;
+        padding-left: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        background-color: #D94A94;
+        color: white;
+        /* box-sizing: border-box; */
+    }
+}
