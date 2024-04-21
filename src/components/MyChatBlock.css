@@ -1,0 +1,49 @@
+
+
+.chat-container {
+    display: flex; /* Use flexbox layout */
+    flex-direction: column; /* Align items vertically */
+    align-items: flex-end; /* Align items to the end (right side) */
+    padding: 5px;
+    margin: 10px;
+    /* border: 1px solid black; */
+
+}
+
+.message-container {
+    width: 500px;
+    background-color: #D94A94;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+/*---------------------------------------------------------*/
+
+/* .your-chat-container {
+    position: relative;
+    left: 0;
+    width: auto;
+    padding: 5px;
+    margin: 10px;
+    border: 1px solid white
+
+} */
+
+.your-message-container {
+    /* position: absolute; */
+    left: 0;
+    width: 500px;
+    background-color: #FBCCAE;
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    align-self: flex-start;
+}
+
+.message-block {
+    display: flex;
+    justify-content: flex-start;
+}
+
