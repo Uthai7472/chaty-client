@@ -5,7 +5,6 @@ import Header from './Header';
 import ChatBar from './ChatBar';
 import MyChatBlock from './MyChatBlock';
 import useAuth from './AuthGuard';
-import { useEffect } from 'react';
 
 
 const Main = () => {
