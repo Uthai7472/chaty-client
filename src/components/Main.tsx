@@ -4,15 +4,16 @@ import Header from './Header';
 // import useAuth from './AuthGuard';
 import ChatBar from './ChatBar';
 import MyChatBlock from './MyChatBlock';
+import useAuth from './AuthGuard';
 
 
 const Main = () => {
 
-  // const isAuthen = useAuth();
+  const isAuthen = useAuth();
 
-  // if (!isAuthen) {
-  //   return null;
-  // }
+  if (!isAuthen) {
+    return null;
+  }
   // const isAuthenState = localStorage.getItem('isAuthenticated');
   //   if (isAuthenState === 'false' || isAuthenState === null) {
   //     window.location.href = '/';
