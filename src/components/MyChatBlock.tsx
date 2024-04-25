@@ -3,7 +3,7 @@ import './MyChatBlock.css';
 import axios from 'axios';
 
 const MyChatBlock = () => {
-    const [messages, setMessages] = useState<{ id_table: number; username: string; date: string; timestamp: string; message: string }[]>([]);
+    const [messages, setMessages] = useState<{ id_table: number; username: string; date: string; timestamp: string; message: string; image_url: string }[]>([]);
 
     const userLogin = localStorage.getItem('userLogin');
     console.log('User login: ', userLogin);
@@ -48,7 +48,16 @@ const MyChatBlock = () => {
                             {formatDate(message.date)} {message.timestamp}
                         </div>
                         <div className='message-block'>
+                        {message.image_url === "" ? (
+                        <div className='message-block'>
                             {message.message}
+                        </div>
+                        ) : (
+                            <div className='message-image-block'>
+                                {/* {message.image_url} */}
+                                <img src={`https://chaty-server1.onrender.com/api/chat/get-image/${message.image_url}`} alt="image" />
+                            </div>
+                        )}
                         </div>
                     </div>
                 </div>

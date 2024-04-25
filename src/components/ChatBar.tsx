@@ -17,7 +17,14 @@ const ChatBar = () => {
     'date': ''
   });
 
-  // const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files && event.target.files[0];
+    if (file) {
+        setSelectedFile(file);
+    }
+  };
 
   const handleChangeTextArea = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -28,27 +35,7 @@ const ChatBar = () => {
     console.log(`Name: ${name} Value: ${value}`);
   };
 
-  // const handleFileChange = (e) => {
-  //   const file = e.target.files[0];
-  //   setSelectedFile(file);
-  // }
-
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   const { name, value } = e.target;
-  //   setFormData(prevState => ({
-  //     ...prevState,
-  //     [name]: value
-  //   }));
-  //   console.log(`Name: ${name} Value: ${value}`);
-  // };
-
-  // const handleImageChange = (e) => {
-  //   const file = e.target.files[0];
-  //   setFormData(prevState => ({
-  //     ...prevState,
-  //     image_url: file
-  //   }));
-  // };
+  
 
   const handleClick = async () => {
     // e.preventDefault();
@@ -81,26 +68,44 @@ const ChatBar = () => {
           'date': ''
         });
 
-        window.location.reload();
+        
       }
 
-      // if (selectedFile) {
-      //   const fileFormData = new FormData();
-      //   fileFormData.append('file', selectedFile);
-      //   axios.post('http://localhost:3002/api/upload/image', fileFormData)
-      //   .then( res => {
+      if (selectedFile) {
+        const imageFormData = await new FormData();
+        imageFormData.append('image', selectedFile);
+        console.log(selectedFile.name);
 
-      //   })
+        const updatedImageFormData = {
+          ...formData,
+          username: username,
+          timestamp: timestamp,
+          date: dateThailand,
+          image_url: selectedFile.name
+        };
+        
+        // Send Image to server folder
+        await axios.post('https://chaty-server1.onrender.com/api/upload/image', imageFormData)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error('Error uploading image: ', error);
+        });
 
-      //   console.log('Image selected: ', selectedFile);
-      // }
+        // Send image url and any datas
+        await axios.post('https://chaty-server1.onrender.com/api/chat/send', updatedImageFormData)
+        .then(response => {
+          console.log(response.data);
+        })
+        .catch(error => {
+          console.error('Error uploading image_url: ', error);
+        });
 
-      // if (formData.message) {
-      //   window.location.reload();
-      // }
+        
+      }
 
-      
-      
+      window.location.href = await window.location.href;
       
     } catch (error) {
       console.error('An error occurred during send message:', error);
@@ -114,12 +119,12 @@ const ChatBar = () => {
       <label htmlFor="image-input" className="image-select-btn">
         <IoImages />
       </label>
-      {/* <input
+      <input
         id="image-input"
         type="file"
         onChange={handleFileChange}
         style={{ display: 'none' }}
-      /> */}
+      />
       </div>
 
       <div className='message-block'>

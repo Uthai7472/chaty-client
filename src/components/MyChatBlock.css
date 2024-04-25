@@ -47,6 +47,13 @@
     justify-content: flex-start;
 }
 
+.message-image-block {
+    display: flex;
+    justify-content: flex-start;
+    width: auto;
+    height: auto;
+}
+
 
 @media (max-width: 768px) {
     .chat-container {
