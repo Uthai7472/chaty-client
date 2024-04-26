@@ -5,6 +5,8 @@ import axios from 'axios';
 const MyChatBlock = () => {
     const [messages, setMessages] = useState<{ id_table: number; username: string; date: string; timestamp: string; message: string; image_url: string }[]>([]);
 
+    const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+
     const userLogin = localStorage.getItem('userLogin');
     console.log('User login: ', userLogin);
 
@@ -30,6 +32,15 @@ const MyChatBlock = () => {
 
     const sortedMessages = [...messages].sort((a, b) => a.id_table - b.id_table);
 
+    // Click open image
+    const openImage = (imageUrl: string) => {
+        setEnlargedImage(imageUrl);
+    };
+
+    const closeImage = () => {
+        setEnlargedImage(null);
+    }
+
     // Filter messages by username
     // const filteredMessages = sortedMessages.filter(message => message.username === userLogin);
 
@@ -53,7 +64,7 @@ const MyChatBlock = () => {
                             {message.message}
                         </div>
                         ) : (
-                            <div className='message-image-block'>
+                            <div className='message-image-block' onClick={() => openImage(message.image_url)}>
                                 {/* {message.image_url} */}
                                 <img src={`https://chaty-server1.onrender.com/api/chat/get-image/${message.image_url}`} alt="image" />
                             </div>
@@ -63,6 +74,14 @@ const MyChatBlock = () => {
                 </div>
             ))}
         </div>
+
+        {enlargedImage && (
+            <div className='image-overlay' onClick={closeImage}>
+                <div className='image-big-size'>
+                    <img src={`https://chaty-server1.onrender.com/api/chat/get-image/${enlargedImage}`} />
+                </div>
+            </div>
+        )}
     </div>
   )
 }
