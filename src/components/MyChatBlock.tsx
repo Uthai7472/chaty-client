@@ -12,7 +12,13 @@ const MyChatBlock = () => {
     console.log('User login: ', userLogin);
 
     useEffect(() => {
-        chatContainerRef.current?.scrollIntoView();
+        const scrollToBottom = () => {
+            if (chatContainerRef.current) {
+                chatContainerRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            }
+        };
+    
+        scrollToBottom();
       }, [messages]);
     
     
