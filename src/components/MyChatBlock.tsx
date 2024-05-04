@@ -57,9 +57,9 @@ const MyChatBlock = () => {
   return (
     <div>
         
-        <div>
+        <div ref={chatContainerRef}>
             {sortedMessages.map((message) => (
-                <div className='chat-container'>
+                <div className='chat-container' >
                     <div key={message.id_table} className={message.username === userLogin ? 'message-container' : 'your-message-container'}>
                         <div className='datetime-block'>
                             {formatDate(message.date)} {message.timestamp}
@@ -77,7 +77,6 @@ const MyChatBlock = () => {
                         )}
                         </div>
                     </div>
-                    <div ref={chatContainerRef} />
                 </div> 
             ))}
         </div>
