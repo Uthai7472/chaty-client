@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import './MyChatBlock.css';
 import axios from 'axios';
 
@@ -6,9 +6,16 @@ const MyChatBlock = () => {
     const [messages, setMessages] = useState<{ id_table: number; username: string; date: string; timestamp: string; message: string; image_url: string }[]>([]);
 
     const [enlargedImage, setEnlargedImage] = useState<string | null>(null);
+    const chatContainerRef = useRef<HTMLDivElement>(null);
 
     const userLogin = localStorage.getItem('userLogin');
     console.log('User login: ', userLogin);
+
+    useEffect(() => {
+        chatContainerRef.current?.scrollIntoView();
+      }, [messages]);
+    
+    
 
     useEffect(() => {
         const fetchMessages = async () => {
@@ -41,13 +48,6 @@ const MyChatBlock = () => {
         setEnlargedImage(null);
     }
 
-    // Filter messages by username
-    // const filteredMessages = sortedMessages.filter(message => message.username === userLogin);
-
-    // const filteredYourMessages = sortedMessages.filter(message => message.username !== userLogin);
-
-    // const chatContainerClass = messages.some(message => message.username === userLogin ? 'my-chat-container' : 'your-chat-container');
-
   return (
     <div>
         
@@ -71,7 +71,8 @@ const MyChatBlock = () => {
                         )}
                         </div>
                     </div>
-                </div>
+                    <div ref={chatContainerRef} />
+                </div> 
             ))}
         </div>
 
