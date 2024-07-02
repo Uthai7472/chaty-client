@@ -55,6 +55,7 @@ const ChatBar = () => {
       };
 
       if (formData.message) {
+        // const response = await axios.post('https://chaty-server1.onrender.com/api/chat/send', updatedFormData);
         const response = await axios.post('https://chaty-server1.onrender.com/api/chat/send', updatedFormData);
         console.log(response.data);
         console.log('Form Data: ', updatedFormData);
