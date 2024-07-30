@@ -28,7 +28,7 @@ const Register = () => {
         console.log(`Submit ID : ${formData.id}`);
 
         try {
-            const response = await axios.post(`${process.env.NODE_PUBLIC_API_URL}/api/register`, formData);
+            const response = await axios.post(`https://chaty-server1.vercel.app/api/register`, formData);
             console.log("Response Data from /api/register: ", response.data);
             navigate('/');
 

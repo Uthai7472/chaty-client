@@ -28,7 +28,7 @@ const Login = () => {
         console.log("Login Data : ", loginData);
 
         try {
-            const response = await axios.post(`${process.env.NODE_PUBLIC_API_URL}/users/login`, loginData);
+            const response = await axios.post(`https://chaty-server1.vercel.app/users/login`, loginData);
             console.log('Response Data: ', response.data);
             
             if (response.data.authenticated === 'true') {
