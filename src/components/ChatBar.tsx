@@ -56,7 +56,7 @@ const ChatBar = () => {
 
       if (formData.message) {
         // const response = await axios.post('https://chaty-server1.onrender.com/api/chat/send', updatedFormData);
-        const response = await axios.post('https://chaty-server1.onrender.com/api/chat/send', updatedFormData);
+        const response = await axios.post(`${process.env.NODE_PUBLIC_API_URL}/api/chat/send`, updatedFormData);
         console.log(response.data);
         console.log('Form Data: ', updatedFormData);
 
@@ -86,7 +86,7 @@ const ChatBar = () => {
         };
         
         // Send Image to server folder
-        await axios.post('https://chaty-server1.onrender.com/api/upload/image', imageFormData)
+        await axios.post(`${process.env.NODE_PUBLIC_API_URL}/api/upload/image`, imageFormData)
         .then(response => {
           console.log(response.data);
         })
@@ -95,7 +95,7 @@ const ChatBar = () => {
         });
 
         // Send image url and any datas
-        await axios.post('https://chaty-server1.onrender.com/api/chat/send', updatedImageFormData)
+        await axios.post(`${process.env.NODE_PUBLIC_API_URL}/api/chat/send`, updatedImageFormData)
         .then(response => {
           console.log(response.data);
         })

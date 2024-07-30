@@ -26,7 +26,7 @@ const MyChatBlock = () => {
     useEffect(() => {
         const fetchMessages = async () => {
             try {
-                const response = await axios.get('https://chaty-server1.onrender.com/api/chat/show_message');
+                const response = await axios.get(`${process.env.NODE_PUBLIC_API_URL}/api/chat/show_message`);
                 setMessages(response.data);
             } catch (error) {
                 console.error('An error occurred while fetching messages:', error);
@@ -72,7 +72,7 @@ const MyChatBlock = () => {
                         ) : (
                             <div className='message-image-block' onClick={() => openImage(message.image_url)}>
                                 {/* {message.image_url} */}
-                                <img src={`https://chaty-server1.onrender.com/api/chat/get-image/${message.image_url}`} alt="image" />
+                                <img src={`${process.env.NODE_PUBLIC_API_URL}/api/chat/get-image/${message.image_url}`} alt="image" />
                             </div>
                         )}
                         </div>
@@ -84,7 +84,7 @@ const MyChatBlock = () => {
         {enlargedImage && (
             <div className='image-overlay' onClick={closeImage}>
                 <div className='image-big-size'>
-                    <img src={`https://chaty-server1.onrender.com/api/chat/get-image/${enlargedImage}`} />
+                    <img src={`${process.env.NODE_PUBLIC_API_URL}/api/chat/get-image/${enlargedImage}`} />
                 </div>
             </div>
         )}
